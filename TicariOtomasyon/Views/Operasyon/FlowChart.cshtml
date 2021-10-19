@@ -1,0 +1,44 @@
+﻿@using TicariOtomasyon.Models.Siniflar
+@model List<Operation>
+@{
+    ViewBag.Title = "FlowChart";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<div class="card bg-light text-dark">
+    <div class="card-body"><h2>İş Akışı</h2></div>
+</div>
+
+
+<br />
+
+    @foreach (var k in Model)
+    {
+<div class="row">
+    <div class="col">
+        <div class="card bg-secondary text-white">
+            <div class="card-body">@k.Urun.UrunKod</div>
+        </div>
+    </div>
+    <div class="col">
+    <div class="card bg-secondary text-white">
+        <div class="card-body">@k.Urun.UrunAd</div>
+    </div>
+</div>
+    <div class="col">
+        <div class="card bg-primary text-white">
+            <div class="card-body">@k.OpKod</div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card bg-success text-white">
+            <div class="card-body">@k.OpAd</div>
+        </div>
+    </div>
+</div>
+<br />
+    }
+
+
+

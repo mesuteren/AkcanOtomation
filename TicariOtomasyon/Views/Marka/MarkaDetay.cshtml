@@ -1,0 +1,41 @@
+﻿@using TicariOtomasyon.Models.Siniflar
+@model List<Urun>
+@{
+    ViewBag.Title = "MarkaDetay";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Seçilen Markaya Ait Ürünler</h2>
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Marka = @ViewBag.d</li>
+</ol>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Ürün Kodu</th>
+        <th>Ürün Adı</th>
+        <th>Marka</th>
+        <th>Durum</th>
+        <th>Kategori</th>
+        <th>Ürün Görsel</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var u in Model)
+    {
+        <tr>
+            <td>@u.UrunID</td>
+            <td>@u.UrunKod</td>
+            <td>@u.UrunAd</td>
+            <td>@u.Marka.MarkaAd</td>
+            <td>@u.Durum</td>
+            <td>@u.Kategori.KategoriAd</td>
+            <td>@u.UrunGorsel</td>
+            <td><a href="/Urun/UrunSil/@u.UrunID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Urun/UrunGetir/@u.UrunID" class="btn btn-dark">Güncelle</a></td>
+        </tr>
+    }
+</table>
+

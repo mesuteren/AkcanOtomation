@@ -1,0 +1,73 @@
+﻿@using TicariOtomasyon.Models.Siniflar
+@model List<Urun>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<br />
+<div class="card bg-light text-dark">
+    <div class="card-body"><h2>Ürünler</h2></div>
+</div>
+<br />
+<a href="/Urun/YeniUrun/" class="btn btn-info">Yeni Ürün Ekle</a>
+<a href="/Urun/UrunPasif/" class="btn btn-danger">Kullanım Dışı Ürünler</a>
+<a href="/Urun/Index/" class="btn btn-success">Aktif Ürünler</a>
+<br />
+<br />
+
+<table id="tbl1" class="table table-bordered table-sm" style="margin-top:20px">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ürün Kodu</th>
+            <th>Ürün Adı</th>
+            <th>Marka</th>
+            <th>Durum</th>
+            <th>Kategori</th>
+
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+    </thead>
+    @foreach (var u in Model)
+    {
+        <tr>
+            <td>@u.UrunID</td>
+            <td>@u.UrunKod</td>
+            <td>@u.UrunAd</td>
+            <td>@u.Marka.MarkaAd</td>
+            <td>@u.Durum</td>
+            <td>@u.Kategori.KategoriAd</td>
+
+            <td><a href="/Urun/UrunSil/@u.UrunID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Urun/UrunGetir/@u.UrunID" class="btn btn-dark">Güncelle</a></td>
+        </tr>
+    }
+</table>
+<button class="btn btn-primary">Yeni Ürün Ekle</button>
+
+
+
+
+@*<link href="~/Content/bootstrap.css" rel="stylesheet" />*@
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+
+
+
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+
+
+<link href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+
+<script>
+    $('#tbl1').dataTable({});
+</script>

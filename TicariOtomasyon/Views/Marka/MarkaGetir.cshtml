@@ -1,0 +1,20 @@
+﻿@model TicariOtomasyon.Models.Siniflar.Marka
+@{
+    ViewBag.Title = "MarkaGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Marka Güncelleme</h2>
+<br />
+
+@using (Html.BeginForm("MarkaGuncelle", "Marka", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.MarkaAd)
+        @Html.TextBoxFor(x => x.MarkaAd, new { @class = "form-control" })
+        @Html.HiddenFor(x => x.MarkaID)
+    </div>
+
+    <button class="btn btn-warning">Güncelle</button>
+}

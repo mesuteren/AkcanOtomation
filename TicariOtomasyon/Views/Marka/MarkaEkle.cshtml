@@ -1,0 +1,18 @@
+﻿@model TicariOtomasyon.Models.Siniflar.Marka
+@{
+    ViewBag.Title = "MarkaEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Yeni Marka Sayfası</h2>
+<br />
+<form class="form-group" method="post" enctype="multipart/form-data">
+    @Html.LabelFor(x => x.MarkaAd)
+    @Html.TextBoxFor(x => x.MarkaAd, new { @class = "form-control form-control-lg", placeholder = "Yeni Marka giriniz" })
+    <br />
+    @*<label for="file">Dosya Seçiniz</label>
+    <input type="file" name="file" id="file" />*@
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+</form>
